@@ -29,6 +29,7 @@ void Chaydongco(int DONGCO, int VANTOC)
 }
 void setup()
 {
+    Serial.begin(115200);
     for (int i = 0; i < 4; i++)
     {
         pinMode(PIN_DC[i], OUTPUT);
