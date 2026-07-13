@@ -6,9 +6,9 @@
 int PIN_DC[4] = {PIN_DC_1, PIN_DC_2, PIN_DC_3, PIN_DC_4};
 void Chaydongco(int DONGCO, int VANTOC)
 {
-    // Ví dụ tính toán vận tốc về lại PWM
+    // Ví dụ tính toán phần trăm công suất về lại PWM
     int PWM = (VANTOC / 200) * 255;
-    switch (DONGCO)
+    switch (DONGCO) // Kiểm tra truyền đối số cần gọi động cơ nào
     {
     case 1:
         analogWrite(PIN_DC[0], PWM);
@@ -35,4 +35,9 @@ void setup()
         pinMode(PIN_DC[i], OUTPUT);
         analogWrite(PIN_DC[i], 0);
     }
+}
+void loop()
+{
+    Chaydongco(1, 200); // chạy động cơ 1 với tốc độ 200 vòng trên phút
+    Chaydongco(2, 200); // chạy động cơ 2 với tốc độ 200 vòng trên phút
 }

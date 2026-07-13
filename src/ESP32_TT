@@ -1,0 +1,31 @@
+/*
+ ESp32_TT Là ví dụ đây là bộ nhận lệnh điều khiển
+ thực hiện việc đọc dữ liệu nhận được từ bộ điều khiển
+ sau khi phân tích sẽ thực thi theo lệnh được gửi
+*/
+#include <Arduino.h>
+#define RXD2 16
+#define TXD2 17
+#define led 2
+#define PIN_1_DC 25
+#define PIN_2_DC 26
+int outputs[3] = {led, PIN_1_DC, PIN_2_DC};
+void setup()
+{
+    Serial.begin(115200);                        // Khai báo giao tiếp với máy tính
+    Serial2.begin(9600, SERIAL_8N1, RXD2, TXD2); // Khai báo giao tiếp với ESP32_DK
+    for (int i = 0; i < 3; i++)
+    {
+        pinMode(outputs[i], OUTPUT);
+        analogWrite(outputs[i], 0);
+    }
+}
+void Control_DC(char chieu, int congsuat)
+{
+}
+void read_DATA()
+{
+}
+void loop()
+{
+}
